@@ -27,23 +27,28 @@
 
         function tweetRefresh(obj) {
           var index = obj.length - 1;
-           
+          $tweetBody.html('');
+
             while (index >= 0) {
               var tweet = obj[index];
-              tweetStructure(tweet.user, tweet.message, tweet.created_at);
+              var $user = tweetUser(tweet.user); 
+              var $tweet = tweetMessage(tweet.message);
+              var $time = tweetDate(tweet.created_at);
+              $user.appendTo($tweetBody);
+              $tweet.appendTo($tweetBody);
+              $time.appendTo($tweetBody);
               index -= 1;
             }
           }
 
-          function tweetStructure(user, message, created_at) {
-            var $time = tweetDate(created_at);
+          function tweetMessage(message) {
             var $tweet = $('<div class="tweetMessage"></div>');
+            return $tweet.text(message);
+          }
+
+          function tweetUser(user) {
             var $user = $('<div class="tweetUser"></div>');
-            $user.text('@' + user);
-            $tweet.text(message);
-            $time.prependTo($tweetBody);
-            $tweet.prependTo($tweetBody);
-            $user.prependTo($tweetBody);
+            return $user.text('@' + user);
           }
 
           function tweetDate(created_at) {
