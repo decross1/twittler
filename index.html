@@ -16,7 +16,6 @@
   <body>
     <div class="tweets"></div>
       <script>
-
         $(document).ready(function() {
 
           var $tweetBody = $('.tweets');
@@ -26,28 +25,36 @@
             tweetRefresh(streams.home);
           });
 
-
-
-        function tweetRefresh(stream) {
-          var index = stream.length - 1;
-
+        function tweetRefresh(obj) {
+          var index = obj.length - 1;
+           
             while (index >= 0) {
-              var tweet = stream[index];
-              var tweetTime = tweet.created_at.toString();
-              var tweetDay = tweetTime.slice(0, 10);
-              var tweetHour = tweetTime.slice(16, 24);
-              var $tweetHourBreak = $('<div class="tweetTime"></div');
-              var $tweet = $('<div class="tweetMessage"></div>');
-
-              $tweetHourBreak.text(tweetDay + ' - ' + tweetHour);
-              $tweetHourBreak.prependTo($tweetBody);
-              $tweet.text('@' + tweet.user + ': ' + tweet.message);
-              $tweet.prependTo($tweetBody);
+              var tweet = obj[index];
+              tweetStructure(tweet.user, tweet.message, tweet.created_at);
               index -= 1;
             }
           }
-        });
 
+          function tweetStructure(user, message, created_at) {
+            var $time = tweetDate(created_at);
+            var $tweet = $('<div class="tweetMessage"></div>');
+            var $user = $('<div class="tweetUser"></div>');
+            $user.text('@' + user);
+            $tweet.text(message);
+            $time.prependTo($tweetBody);
+            $tweet.prependTo($tweetBody);
+            $user.prependTo($tweetBody);
+          }
+
+          function tweetDate(created_at) {
+            var tweetTime = created_at.toString();
+            var tweetDay = tweetTime.slice(0, 10);
+            var tweetHour = tweetTime.slice(16, 24);
+            var $tweetHourBreak = $('<div class="tweetTime"></div');
+            return $tweetHourBreak.text(tweetDay + ' - ' + tweetHour);  
+          }
+
+        });
       </script>
 
   </body>

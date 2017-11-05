@@ -101,10 +101,10 @@ body {
   margin-right:auto;
   font-size: 18px;
   font-weight: 200;
-  margin-top: 5px;
   justify-content: center;
   display: flex;
   font-family: 'DomaineText-Light', serif;
+  margin-bottom: 2px;
 }
 
 .tweetTime {
@@ -112,6 +112,14 @@ body {
   justify-content: center;
   display: flex;
   margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.tweetUser {
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+  margin-top: 5px;
 }
 
 /* ----------------------------------- 
