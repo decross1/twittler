@@ -9,41 +9,47 @@
     <header>
       <p class="main-heading"> Twittler</p>
     </header>
-    <div>
+    <div class='button-placement'>
       <button class="ref-tweets"> Refresh Tweets </button>
     </div>
 
   <body>
-    <div class="tweets">
+    <div class="tweets"></div>
       <script>
-        $(document).ready(function(){
+
+        $(document).ready(function() {
 
           var $tweetBody = $('.tweets');
-          var indexCur = 0;
+          tweetRefresh(streams.home);
 
-          $("button").on('click', function() {
-            
-            var index = streams.home.length - 1;
-
-            if(index > indexCur) {
-              for(var i = indexCur; i < index; i++) {
-                var tweet = streams.home[i];
-                var tweetTime = tweet.created_at.toString();
-                tweetDay = tweetTime.slice(0, 10);
-                tweetHour = tweetTime.slice(16, 24);
-                var $tweet = $('<div></div>');
-                var $tweetHourBreak = $('<div></div');
-                $tweetHourBreak.text(tweetDay + ' - ' + tweetHour);
-                $tweetHourBreak.prependTo($tweetBody);
-                $tweet.text('@' + tweet.user + ': ' + tweet.message);
-                $tweet.prependTo($tweetBody);
-                indexCur = index;
-              }
-            }
+          $(document).on('click', 'button', function(){
+            tweetRefresh(streams.home);
           });
+
+
+
+        function tweetRefresh(stream) {
+          var index = stream.length - 1;
+
+            while (index >= 0) {
+              var tweet = stream[index];
+              var tweetTime = tweet.created_at.toString();
+              var tweetDay = tweetTime.slice(0, 10);
+              var tweetHour = tweetTime.slice(16, 24);
+              var $tweetHourBreak = $('<div class="tweetTime"></div');
+              var $tweet = $('<div class="tweetMessage"></div>');
+
+              $tweetHourBreak.text(tweetDay + ' - ' + tweetHour);
+              $tweetHourBreak.prependTo($tweetBody);
+              $tweet.text('@' + tweet.user + ': ' + tweet.message);
+              $tweet.prependTo($tweetBody);
+              index -= 1;
+            }
+          }
         });
+
       </script>
-    </div>
+
   </body>
   <footer>
     <p class="main-footer"> We're learning how to do this! </p>
