@@ -60,14 +60,14 @@ table {
   color: #292b2b;
   letter-spacing: -3.6px; 
   margin-bottom: 15px; 
-  background:linear-gradient(to bottom, #E8E8E8 , #99EFFF);
+  background:linear-gradient(to bottom, #E8E8E8 , #4b75f4);
 }
 
 /* ----------------------------------- 
 -------       Main Body     ----------
 ----------------------------------- */
 body {
-  background-color: #99EFFF;
+  background-color: #4b75f4;
 }
 
 /* ----------------------------------- 
@@ -97,29 +97,50 @@ body {
 -------    Tweet Structure    --------
 ----------------------------------- */
 .tweetMessage {
-  margin-left:auto;
-  margin-right:auto;
+  margin-left:38%;
+  margin-right:38%;
+  color: white;
+  text-align: center;
   font-size: 18px;
   font-weight: 200;
   justify-content: center;
   display: flex;
   font-family: 'DomaineText-Light', serif;
-  margin-bottom: 2px;
+  background-color: #3e3f42;
+  border: solid white;
+  border-style: none solid none solid;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .tweetTime {
-  margin: 0 auto;
+  margin-left:38%;
+  margin-right:38%;
+  color: white;
   justify-content: center;
   display: flex;
   margin-bottom: 10px;
   font-size: 12px;
+  background-color: #3e3f42;
+  border: solid white;
+  border-style: none solid solid solid;
+  border-radius: 0px 0px 12px 12px;
+  padding-bottom: 5px;
 }
 
 .tweetUser {
-  margin: 0 auto;
+  margin-left:38%;
+  margin-right:38%;
+  color: white;
+  font-style: italic;
   justify-content: center;
   display: flex;
   margin-top: 5px;
+  background-color: #3e3f42;
+  border: solid white;
+  border-style: solid solid none solid;
+  border-radius: 12px 12px 0px 0px;
+  padding-top: 5px;
 }
 
 /* ----------------------------------- 
@@ -132,7 +153,7 @@ body {
   font-size: 22px; 
   font-weight: 900; 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-  color: #292b2b;
+  background-color: #4b75f4;
   letter-spacing: -3.0px; 
   margin-bottom: 15px; 
 }
