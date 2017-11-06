@@ -109,8 +109,7 @@ body {
   background-color: #3e3f42;
   border: solid white;
   border-style: none solid none solid;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 5px 10px 5px 10px;
 }
 
 .tweetTime {
