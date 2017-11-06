@@ -11,6 +11,7 @@
     </header>
     <div class='button-placement'>
       <button class="ref-tweets"> Refresh Tweets </button>
+      <button class='return-home'> Return Home </button>
     </div>
 
   <body>
@@ -21,9 +22,44 @@
           var $tweetBody = $('.tweets');
           tweetRefresh(streams.home);
 
-          $(document).on('click', 'button', function(){
+          $(document).on('click', '.ref-tweets', function(){
             tweetRefresh(streams.home);
-          });
+            });
+
+          $(document).on('click', '.return-home', function(){
+            tweetRefresh(streams.home);
+            $('.ref-tweets').remove();
+            $('.user-refresh').remove();
+  
+            if (!$('.user-refresh').css('visibility') === 'hidden') {
+                $('<button class="ref-tweets"> Refresh Tweets </button>').prependTo('.button-placement');
+              } else {
+                $('.user-refresh').remove();
+                $('<button class="ref-tweets"> Refresh Tweets </button>').prependTo('.button-placement');
+              }
+            });
+
+          $(document).on('click', '.tweetUser', function () {
+              var userPass = $(this).text().slice(1);
+              $('.ref-tweets').remove();
+              $('.user-refresh').remove();
+    
+              // if(!$('.user-refresh').css('visibility') !== 'hidden') {
+              //   $('<button class="user-refresh"> Refresh Tweets </button>').prependTo('.button-placement');
+              // } 
+              tweetRefresh(streams.users[userPass]);
+            });
+
+          // $(document).on('click', '.user-refresh', function(){
+          //     var userPass = $('div.tweetUser').text().slice(1);
+          //     $('.ref-tweets').remove();
+          //     $('.user-refresh').remove();
+    
+          //     if(!$('.user-refresh').css('visibility') !== 'hidden') {
+          //       $('<button class="user-refresh"> Refresh Tweets </button>').prependTo('.button-placement');
+          //     } 
+          //     tweetRefresh(streams.users[userPass]);
+          //   });
 
         function tweetRefresh(obj) {
           var index = obj.length - 1;

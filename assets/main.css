@@ -71,7 +71,7 @@ body {
 }
 
 /* ----------------------------------- 
--------    Refresh Button     --------
+-------  Refresh/Home Buttons --------
 ----------------------------------- */
 
 .ref-tweets{
@@ -87,10 +87,42 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  margin-bottom: 8px;
 }
 
 .button-placement {
   margin-bottom: 15px;
+}
+
+.return-home{
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  padding: 9px 48px 8px;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.user-refresh{
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  padding: 9px 48px 8px;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 8px;
 }
 
 /* ----------------------------------- 
